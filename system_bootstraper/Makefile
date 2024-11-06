@@ -87,6 +87,7 @@ ifeq ($(mode), nvim)
 	rm -rf ~/.config/nvim
 	rm -rf ~/.local/state/nvim
 	rm -rf ~/.local/share/nvim
+	rm -rf ~/.cache/nvim
 else
 	# Set a cleaning mode by setting 'mode' variable
 endif
