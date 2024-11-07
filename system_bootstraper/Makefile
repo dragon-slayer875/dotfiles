@@ -36,17 +36,17 @@ mirrors: ## Updates mirrors
 	sudo reflector --verbose --age 2 --latest 10 --sort rate --save /etc/pacman.d/mirrorlist
 
 update: mirrors ## Updates mirrors and then the whole system
-	sudo pacman --no-confirm -Syu
+	sudo pacman --noconfirm -Syu
 
 zsh: ## Changes default shell to zsh and installs ohmyzsh
 	chsh -s $(which zsh)
 	sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 fonts: ## Installs fonts
-	sudo pacman --no-confirm --needed -S $(FONTS)
+	sudo pacman --noconfirm --needed -S $(FONTS)
 
 deps: ## Installs packages from arch repos
-	sudo pacman --no-confirm --needed -S $(DEPS)
+	sudo pacman --noconfirm --needed -S $(DEPS)
 
 aur-deps: ## Installs packages from AUR
 	yay --needed -S $(AUR_DEPS)
