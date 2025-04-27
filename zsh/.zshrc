@@ -8,7 +8,7 @@ export ZSH="$HOME/.oh-my-zsh"
 # load a random theme each time Oh My Zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="robbyrussell"
+ZSH_THEME="sorinlike"
 
 # Exporting terminals
 export TERM='kitty'
@@ -45,7 +45,11 @@ export ZOXIDE_CMD_OVERRIDE=cd
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(zsh-autosuggestions starship zoxide git)
+plugins=(
+  zsh-autosuggestions
+  zoxide 
+  git
+)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -54,7 +58,7 @@ source $ZSH/oh-my-zsh.sh
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
-# export LANG=en_US.UTF-8
+export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
 if [[ -n $SSH_CONNECTION ]]; then
@@ -96,9 +100,9 @@ alias sl="echo 'correcting to ls' && ls"
 alias ls="eza --icons --color=auto --group-directories-first -a"
 alias ll='eza --icons --group-directories-first -la'   # show long listing of all except ".."
 alias icat="kitty +kitten icat"
-alias ip="ip -c -h"
+alias ip="ip -o a"
 
-# Setting up node
+# NVM configuration
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
@@ -109,3 +113,5 @@ export ANDROID_HOME="$HOME/Android/Sdk"
 export NDK_HOME="$ANDROID_HOME/ndk/$(ls -1 $ANDROID_HOME/ndk)"
 export PATH=$PATH:$ANDROID_HOME/emulator
 export PATH=$PATH:$ANDROID_HOME/platform-tools
+export PATH=$HOME/.cargo/bin:$PATH
+export PATH="/home/rudraksht/.bun/bin:$PATH"
