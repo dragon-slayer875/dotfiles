@@ -20,6 +20,9 @@ DEPS := git \
 				yt-dlp \
 				zsh \
 				stow \
+				steam \
+				syncthing \
+				libreoffice-fresh \
 				yay
 
 AUR_DEPS := envycontrol \
@@ -27,6 +30,7 @@ AUR_DEPS := envycontrol \
 						heroic-games-launcher-bin \
 						google-chrome \
 						postman-bin \
+						zen-browser-bin \
 						googledot-cursor-theme
 
 sudo-timeout: ## Changes sudo timeout
@@ -36,7 +40,7 @@ mirrors: ## Updates mirrors
 	sudo reflector --verbose --age 2 --latest 10 --sort rate --save /etc/pacman.d/mirrorlist
 
 update: mirrors ## Updates mirrors and then the whole system
-	sudo pacman --noconfirm -Syu
+	sudo pacman -Syu
 
 zsh: ## Changes default shell to zsh and installs ohmyzsh
 	chsh -s $(which zsh)
