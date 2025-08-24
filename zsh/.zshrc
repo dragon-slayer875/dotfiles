@@ -1,6 +1,6 @@
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 NEWLINE=$'\n'
-PROMPT="%(?.%F{14}⏺.%F{9}⏺)%f %B%F{227}%m%f%b@%F{215}%n%f %~ ${NEWLINE}"
+PROMPT="%(?.%F{14}⏺.%F{9}⏺)%f %B%F{221}%m%f%b@%F{215}%n%f %~ ${NEWLINE}"
 
 # Exporting terminals
 export TERM='kitty'
