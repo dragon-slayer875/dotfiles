@@ -11,5 +11,6 @@ return {
   { import = "astrocommunity.completion.copilot-lua" },
   { import = "astrocommunity.editing-support.copilotchat-nvim" },
   { import = "astrocommunity.diagnostics.trouble-nvim" },
+  { import = "astrocommunity.game.leetcode-nvim" },
   -- import/override with your plugins folder
 }
