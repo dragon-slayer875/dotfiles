@@ -1,6 +1,6 @@
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 NEWLINE=$'\n'
-PROMPT="%(?.%F{14}⏺.%F{9}⏺)%f %B%F{221}%m%f%b@%F{215}%n%f %~ ${NEWLINE}"
+PROMPT="%B%F{185}%m%f%b@%F{215}%n%f %~ ${NEWLINE}%(?.%B%F{14}❯.%F{9}❯)%f%b "
 
 # Exporting terminals
 export TERM='kitty'
@@ -57,17 +57,6 @@ autoload -Uz compinit
 compinit
 # End of lines added by compinstall
 
-# Compilation flags
-# export ARCHFLAGS="-arch $(uname -m)"
-
-# Set personal aliases, overriding those provided by Oh My Zsh libs,
-# plugins, and themes. Aliases can be placed here, though Oh My Zsh
-# users are encouraged to define aliases within a top-level file in
-# the $ZSH_CUSTOM folder, with .zsh extension. Examples:
-# - $ZSH_CUSTOM/aliases.zsh
-# - $ZSH_CUSTOM/macos.zsh
-# For a full list of active aliases, run `alias`.
-#
 # Aliases
 alias zshconfig="nvim ~/.zshrc"
 alias ohmyzsh="nvim ~/.oh-my-zsh"
