@@ -79,8 +79,22 @@ alias ip="ip -o a"
 
 # NVM configuration
 export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+# List of commands which require NVM to be loaded
+local requires_nvm=(nvm node npm pnpm nvim)
+for cmd in "${requires_nvm[@]}"
+do
+    "$cmd"() {
+        # Remove this shim function
+        unset -f "$0"
+
+        # Load NVM
+        [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+        [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+        # Run the now-loaded command
+        "$0" "$@"
+    }
+done
 
 # paths
 export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
@@ -94,4 +108,5 @@ export PATH=$HOME/.cargo/bin:$PATH
 export PATH="/home/rudraksht/.bun/bin:$PATH"
 export PYTHONPATH=/usr/lib/python3.13:/usr/lib/python3.13/lib-dynload
 
+# Initialize zoxide and replace cd command
 eval "$(zoxide init --cmd cd zsh)"
