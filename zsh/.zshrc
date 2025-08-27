@@ -97,5 +97,6 @@ export PATH=$HOME/.cargo/bin:$PATH
 export PATH="/home/rudraksht/.bun/bin:$PATH"
 export PYTHONPATH=/usr/lib/python3.13:/usr/lib/python3.13/lib-dynload
 
-# Initialize zoxide and replace cd command
+# Shell integrations
+eval "$(fzf --zsh)"
 eval "$(zoxide init --cmd cd zsh)"
