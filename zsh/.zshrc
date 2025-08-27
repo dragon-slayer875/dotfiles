@@ -9,13 +9,10 @@ export TERMINAL='kitty'
 # Autoload zsh's `add-zsh-hook` and `vcs_info` functions
 # (-U autoload w/o substition, -z use zsh style)
 autoload -Uz add-zsh-hook vcs_info
-
 # Set prompt substitution so we can use the vcs_info_message variable
 setopt prompt_subst
-
 # Run the `vcs_info` hook to grab git info before displaying the prompt
 add-zsh-hook precmd vcs_info
-
 # Style the vcs_info message
 zstyle ':vcs_info:*' enable git
 zstyle ':vcs_info:git*' formats '%b%u%c'
@@ -46,6 +43,7 @@ fi
 HISTFILE=~/.histfile
 HISTSIZE=20000
 SAVEHIST=20000
+setopt sharehistory
 
 # Setting vim key bindings for zsh
 bindkey -v
@@ -53,8 +51,14 @@ bindkey -v
 # The following lines were added by compinstall
 zstyle :compinstall filename '/home/rudraksht/.zshrc'
 
+fpath=(~/.zsh/zsh-completions/src $fpath)
+zstyle ':completion:*' menu select
 autoload -Uz compinit
-compinit
+for dump in ~/.zcompdump(N.mh+24); do
+  compinit
+done
+compinit -C
+_comp_options+=(globdots) # include hidden files
 # End of lines added by compinstall
 
 # Aliases
@@ -75,11 +79,9 @@ do
     "$cmd"() {
         # Remove this shim function
         unset -f "$0"
-
         # Load NVM
         [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
         [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
         # Run the now-loaded command
         "$0" "$@"
     }
