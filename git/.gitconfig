@@ -1,0 +1,35 @@
+[user]
+	name = Rudraksh Tyagi
+	email = 59254790+dragon-slayer875@users.noreply.github.com
+
+[core]
+	whitespace = error
+	preloadindex = true
+
+[init]
+	defaultBranch = main
+
+[color]
+	ui = auto
+
+[alias]
+	csm = commit -s -m
+	lg = log --oneline --graph --all --decorate
+
+[url "git@github.com:dragon-slayer875/"]
+	insteadOf = "rt:"
+
+[status]
+	branch = true
+	showStash = true
+	showUntrackedFiles = all
+
+[pull]
+	rebase = true
+
+[rebase]
+	autoStash = true
+	missingCommitsCheck = warn
+
+[commit]
+	verbose = true  # add more context to commit messages
