@@ -61,7 +61,7 @@ alias sl="echo 'correcting to ls' && ls"
 alias ls="eza --icons --color=auto --group-directories-first -a"
 alias ll='eza --icons --group-directories-first -la'   # show long listing of all except ".."
 alias icat="kitty +kitten icat"
-alias ip="ip -o a"
+alias ip="ip -c -o a"
 alias nvim-kickstart='NVIM_APPNAME="nvim-kickstart" nvim'
 
 # paths
