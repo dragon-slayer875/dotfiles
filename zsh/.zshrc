@@ -70,7 +70,7 @@ export NDK_HOME="$ANDROID_HOME/ndk/$(ls -1 $ANDROID_HOME/ndk)"
 export PATH=$PATH:$ANDROID_HOME/emulator
 export PATH=$PATH:$ANDROID_HOME/platform-tools
 export PATH=$HOME/.cargo/bin:$PATH
-export PATH="/home/rudraksht/.bun/bin:$PATH"
+export PATH="$HOME/.bun/bin:$PATH"
 export PYTHONPATH=/usr/lib/python3.13:/usr/lib/python3.13/lib-dynload
 
 # Setting key bindings for zsh
