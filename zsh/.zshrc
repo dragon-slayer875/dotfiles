@@ -38,9 +38,6 @@ HISTSIZE=20000
 SAVEHIST=20000
 setopt sharehistory
 
-# Setting vim key bindings for zsh
-bindkey -v
-
 # The following lines were added by compinstall
 zstyle :compinstall filename '/home/rudraksht/.zshrc'
 
@@ -76,7 +73,25 @@ export PATH=$HOME/.cargo/bin:$PATH
 export PATH="/home/rudraksht/.bun/bin:$PATH"
 export PYTHONPATH=/usr/lib/python3.13:/usr/lib/python3.13/lib-dynload
 
+# Setting key bindings for zsh
+bindkey -v
+bindkey '^ ' autosuggest-accept
+
+
+# fnm config
+# List of commands which require fnm to be loaded
+local requires_nvm=(fnm node npm pnpm nvim)
+for cmd in "${requires_nvm[@]}"
+do
+    "$cmd"() {
+        # Remove this shim function
+        unset -f "$0"
+        eval "$(fnm env --use-on-cd --shell zsh)"
+        # Run the now-loaded command
+        "$0" "$@"
+    }
+done
+
 # Shell integrations
-eval "$(fnm env --use-on-cd --shell zsh)"
 eval "$(fzf --zsh)"
 eval "$(zoxide init --cmd cd zsh)"
