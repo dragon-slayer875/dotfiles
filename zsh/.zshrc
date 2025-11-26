@@ -2,10 +2,6 @@ source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 NEWLINE=$'\n'
 PROMPT="%B%F{185}%m%f%b@%F{215}%n%f %~ ${NEWLINE}%(?.%B%F{14}❯.%F{9}❯)%f%b "
 
-# Exporting terminals
-export TERM='kitty'
-export TERMINAL='kitty'
-
 # Autoload zsh's `add-zsh-hook` and `vcs_info` functions
 # (-U autoload w/o substition, -z use zsh style)
 autoload -Uz add-zsh-hook vcs_info
@@ -29,9 +25,6 @@ RPROMPT='⎇ ${vcs_info_msg_0_}'
 
 # User configuration
 
-# You may need to manually set your language environment
-export LANG=en_US.UTF-8
-
 # History settings
 HISTFILE=~/.histfile
 HISTSIZE=20000
@@ -53,7 +46,6 @@ _comp_options+=(globdots) # include hidden files
 
 # Aliases
 alias zshconfig="nvim ~/.zshrc"
-alias ohmyzsh="nvim ~/.oh-my-zsh"
 alias sl="echo 'correcting to ls' && ls"
 alias ls="eza --icons --color=auto --group-directories-first -a"
 alias ll='eza --icons --group-directories-first -la'   # show long listing of all except ".."
@@ -64,18 +56,6 @@ alias nvim-astro='NVIM_APPNAME="nvim-astro" nvim'
 mkcd() {
        mkdir -p "$1" && cd "$1"
    }
-
-# paths
-export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
-export PATH=$PATH:/home/rudraksht/go/bin
-export JAVA_HOME=/opt/android-studio/jbr
-export ANDROID_HOME="$HOME/Android/Sdk"
-export NDK_HOME="$ANDROID_HOME/ndk/$(ls -1 $ANDROID_HOME/ndk)"
-export PATH=$PATH:$ANDROID_HOME/emulator
-export PATH=$PATH:$ANDROID_HOME/platform-tools
-export PATH=$HOME/.cargo/bin:$PATH
-export PATH="$HOME/.bun/bin:$PATH"
-export PYTHONPATH=/usr/lib/python3.13:/usr/lib/python3.13/lib-dynload
 
 # Setting key bindings for zsh
 bindkey -v
