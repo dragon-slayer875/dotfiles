@@ -59,6 +59,11 @@ alias ls="eza --icons --color=auto --group-directories-first -a"
 alias ll='eza --icons --group-directories-first -la'   # show long listing of all except ".."
 alias icat="kitty +kitten icat"
 alias ip="ip -c -o a"
+alias nvim-astro='NVIM_APPNAME="nvim-astro" nvim'
+
+mkcd() {
+       mkdir -p "$1" && cd "$1"
+   }
 
 # paths
 export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
