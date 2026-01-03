@@ -163,6 +163,6 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 --   end,
 -- })
 
-require 'plugins'
+require 'lazy-init'
 
 vim.cmd 'colorscheme onedark'

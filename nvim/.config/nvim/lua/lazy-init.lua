@@ -14,7 +14,7 @@ rtp:prepend(lazypath)
 
 require('lazy').setup {
   spec = {
-    { import = 'kickstart.plugins' },
+    { import = 'plugins' },
     -- 'NMAC427/guess-indent.nvim', -- Detect tabstop and shiftwidth automatically
   },
   install = { colorscheme = { 'onedark' } },
