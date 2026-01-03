@@ -1,18 +1,18 @@
 vim.api.nvim_create_autocmd('BufEnter', {
-  desc = 'Open dir with NeoTree',
-  group = vim.api.nvim_create_augroup('kick-nt-ntrw', { clear = true }),
-  callback = function(args)
-    if package.loaded['neo-tree'] then
-      return true
-    else
-      local stats = vim.uv.fs_stat(vim.api.nvim_buf_get_name(args.buf))
-      if stats and stats.type == 'directory' then
-        require('lazy').load { plugins = { 'neo-tree.nvim' } }
-        pcall(vim.api.nvim_exec_autocmds, 'BufEnter', { group = 'NeoTree_NetrwDeferred', buffer = args.buf })
-        return true
-      end
-    end
-  end,
+	desc = 'Open dir with NeoTree',
+	group = vim.api.nvim_create_augroup('kick-nt-ntrw', { clear = true }),
+	callback = function(args)
+		if package.loaded['neo-tree'] then
+			return true
+		else
+			local stats = vim.uv.fs_stat(vim.api.nvim_buf_get_name(args.buf))
+			if stats and stats.type == 'directory' then
+				require('lazy').load { plugins = { 'neo-tree.nvim' } }
+				pcall(vim.api.nvim_exec_autocmds, 'BufEnter', { group = 'NeoTree_NetrwDeferred', buffer = args.buf })
+				return true
+			end
+		end
+	end,
 })
 
 -- Set <space> as the leader key
@@ -51,7 +51,7 @@ vim.o.showcmdloc = 'statusline'
 
 -- Sync clipboard between OS and Neovim.
 vim.schedule(function()
-  vim.o.clipboard = 'unnamedplus'
+	vim.o.clipboard = 'unnamedplus'
 end)
 
 -- Enable break indent
@@ -109,6 +109,8 @@ vim.keymap.set('n', '|', '<cmd>vsplit<CR>')
 vim.keymap.set('n', '<leader>q', '<cmd>confirm quit<CR>', { desc = 'Close Window' })
 vim.keymap.set('n', '<leader>w', '<cmd>write<CR>', { desc = 'Save changes' })
 vim.keymap.set('n', '<leader>c', '<cmd>bdelete<CR>', { desc = 'Save changes' })
+vim.keymap.set('n', '<leader>tt', '<cmd>split<CR><cmd>terminal<CR>', { desc = 'Open [t]erminal with horizontal split' })
+vim.keymap.set('n', '<leader>tT', '<cmd>vsplit<CR><cmd>terminal<CR>', { desc = 'Open [t]erminal with vertical split' })
 
 -- NOTE: This won't work in all terminal emulators/tmux/etc. Try your own mapping
 -- or just use <C-\><C-n> to exit terminal mode
@@ -140,28 +142,12 @@ vim.keymap.set('n', '<C-S-k>', '<C-w>K', { desc = 'Move window to the upper' })
 
 -- Highlight when yanking (copying) text
 vim.api.nvim_create_autocmd('TextYankPost', {
-  desc = 'Highlight when yanking (copying) text',
-  group = vim.api.nvim_create_augroup('kickstart-highlight-yank', { clear = true }),
-  callback = function()
-    vim.hl.on_yank()
-  end,
+	desc = 'Highlight when yanking (copying) text',
+	group = vim.api.nvim_create_augroup('kickstart-highlight-yank', { clear = true }),
+	callback = function()
+		vim.hl.on_yank()
+	end,
 })
-
--- vim.api.nvim_create_autocmd('BufEnter', {
---   desc = 'Open Neo-Tree on startup with directory',
---   callback = function(args)
---     if package.loaded['neo-tree'] then
---       return true
---     else
---       local stats = vim.uv.fs_stat(vim.api.nvim_buf_get_name(args.buf))
---       if stats and stats.type == 'directory' then
---         require('lazy').load { plugins = { 'neo-tree.nvim' } }
---         pcall(vim.api.nvim_exec_autocmds, 'BufEnter', { group = 'NeoTree_NetrwDeferred', buffer = args.buf })
---         return true
---       end
---     end
---   end,
--- })
 
 require 'lazy-init'
 
