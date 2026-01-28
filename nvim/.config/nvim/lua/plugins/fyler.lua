@@ -9,6 +9,10 @@ return {
 		views = {
 			finder = {
 				default_explorer = true,
+				mappings = {
+					["<BS>"] = "GotoParent",
+					["^"] = "CollapseNode",
+				},
 			}
 		},
 	},
