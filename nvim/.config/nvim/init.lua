@@ -123,6 +123,10 @@ vim.keymap.set('n', '<C-S-k>', '<C-w>K', { desc = 'Move window to the upper' })
 -- Mark motion wrappers
 vim.keymap.set('n', 'gm', '``', { desc = 'Go to last mark' })
 
+-- Commenting wrappers
+vim.keymap.set('n', '<leader>/', 'gcc', { desc = 'Toggle comment for lines', remap = true })
+vim.keymap.set('v', '<leader>/', 'gc', { desc = 'Toggle comment for selection', remap = true })
+
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
 
