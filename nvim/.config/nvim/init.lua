@@ -29,7 +29,7 @@ vim.opt.termguicolors = true
 
 -- Set statusline appearance condition and command line height
 vim.o.laststatus = 3
-vim.o.cmdheight = 0
+vim.o.cmdheight = 1
 vim.o.showcmdloc = 'statusline'
 
 -- Sync clipboard between OS and Neovim.
@@ -91,7 +91,7 @@ vim.keymap.set('n', '|', '<cmd>vsplit<CR>')
 -- vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
 vim.keymap.set('n', '<leader>q', '<cmd>confirm quit<CR>', { desc = 'Close Window' })
 vim.keymap.set('n', '<leader>w', '<cmd>write<CR>', { desc = 'Save changes' })
-vim.keymap.set('n', '<leader>c', '<cmd>bdelete<CR>', { desc = 'Save changes' })
+vim.keymap.set('n', '<leader>c', '<cmd>bp|bd#<CR>', { desc = 'Close Buffer' })
 vim.keymap.set('n', '<leader>tt', '<cmd>split<CR><cmd>terminal<CR>', { desc = 'Open [t]erminal with horizontal split' })
 vim.keymap.set('n', '<leader>tT', '<cmd>vsplit<CR><cmd>terminal<CR>', { desc = 'Open [t]erminal with vertical split' })
 
