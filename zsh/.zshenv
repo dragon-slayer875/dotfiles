@@ -6,10 +6,6 @@ then
     [ -s "$NVM_DIR/bash_completion" ] && . "$NVM_DIR/bash_completion"
 fi
 
-# Exporting terminals
-export TERM='kitty'
-export TERMINAL='kitty'
-
 # paths
 export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
 export PATH=$PATH:/home/rudraksht/go/bin
