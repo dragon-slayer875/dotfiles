@@ -1,4 +1,3 @@
-source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 NEWLINE=$'\n'
 PROMPT="%B%F{185}%m%f%b@%F{215}%n%f %~ ${NEWLINE}%(?.%B%F{14}❯.%F{9}❯)%f%b "
 
@@ -44,6 +43,8 @@ compinit -C
 _comp_options+=(globdots) # include hidden files
 # End of lines added by compinstall
 
+export LANG=en_US.UTF-8
+
 # Aliases
 alias zshconfig="nvim ~/.zshrc"
 alias sl="echo 'correcting to ls' && ls"
@@ -51,7 +52,6 @@ alias ls="eza --icons --color=auto --group-directories-first -a"
 alias ll='eza --icons --group-directories-first -la'   # show long listing of all except ".."
 alias icat="kitty +kitten icat"
 alias ip="ip -c -o a"
-alias nvim-astro='NVIM_APPNAME="nvim-astro" nvim'
 
 mkcd() {
        mkdir -p "$1" && cd "$1"

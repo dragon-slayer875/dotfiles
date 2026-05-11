@@ -17,7 +17,3 @@ export PATH=$PATH:$ANDROID_HOME/platform-tools
 export PATH=$HOME/.cargo/bin:$PATH
 export PATH="$HOME/.bun/bin:$PATH"
 export PYTHONPATH=/usr/lib/python3.13:/usr/lib/python3.13/lib-dynload
-
-# You may need to manually set your language environment
-export LANG=en_US.UTF-8
-
