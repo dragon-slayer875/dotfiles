@@ -1,8 +1,9 @@
 return { -- Highlight, edit, and navigate code
   'nvim-treesitter/nvim-treesitter',
   build = '<cmd>TSUpdate<CR>',
+  lazy = false,
   event = { 'BufReadPre', 'BufNewFile' },
-  main = 'nvim-treesitter.configs', -- Sets main module to use for opts
+--  main = 'nvim-treesitter.configs', -- Sets main module to use for opts
   opts = {
     ensure_installed = { 'bash', 'c', 'diff', 'html', 'lua', 'luadoc', 'markdown', 'markdown_inline', 'query', 'vim', 'vimdoc' },
     -- Autoinstall languages that are not installed

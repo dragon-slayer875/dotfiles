@@ -1,20 +1,22 @@
 return {
-	"A7Lavinraj/fyler.nvim",
+	"FylerOrg/fyler.nvim",
 	dependencies = { "nvim-tree/nvim-web-devicons" },
 	lazy = false,
 	opts = {
 		integrations = {
 			icon = "nvim_web_devicons",
 		},
-		views = {
-			finder = {
-				default_explorer = true,
-				mappings = {
-					["<BS>"] = "GotoParent",
-					["^"] = "CollapseNode",
-				},
-			}
+		extensions = {
+			git = {
+				enabled = true,
+				inline = false,
+			},
 		},
+	  mappings = {
+		n = {
+		  ['<BS>'] = { action = 'visit', args = { parent = true } },
+		},
+	  },
 	},
 	keys = {
 		{
