@@ -15,6 +15,10 @@ return {
 	  mappings = {
 		n = {
 		  ['<BS>'] = { action = 'visit', args = { parent = true } },
+      ['g.'] = {
+        action = 'toggle_ui',
+        args = { 'hidden_items' },
+      },
 		},
 	  },
 	},

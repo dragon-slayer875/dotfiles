@@ -28,8 +28,7 @@ return {
             },
           },
         },
-      }, 
-vim.api.nvim_create_autocmd("LspAttach", {
+      }, vim.api.nvim_create_autocmd("LspAttach", {
         group = vim.api.nvim_create_augroup("kickstart-lsp-attach", { clear = true }),
         callback = function(event)
           local map = function(keys, func, desc, mode)
@@ -59,7 +58,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
           map("gt", "<cmd>Pick lsp scope=type_definition<CR>", "[G]oto [T]ype Definition")
 
           local client = vim.lsp.get_client_by_id(event.data.client_id)
-          if client and client.supports_method(vim.lsp.protocol.Methods.textDocument_documentHighlight, event.buf) then
+          if client and client:supports_method(vim.lsp.protocol.Methods.textDocument_documentHighlight, event.buf) then
             local highlight_augroup = vim.api.nvim_create_augroup("kickstart-lsp-highlight", { clear = false })
             vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
               buffer = event.buf,
